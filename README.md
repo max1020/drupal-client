@@ -163,6 +163,12 @@ drupal.createNode(node,
 );
 ```
 
+###NOTE on fields
+Boolean and taxonomy term fields are not working right now and the values are not inserted in the Drupal backend. Sometimes it also depends on the widget that is used (e.g. multi-select field might not work, but auto-complete does)
+
+A simple workaround to use boolean values  is to set an INT field (instead of a boolean) in the Drupal backend with "onValue" of "1" and offValue of "0" for instance and pass the values as shown above. 
+
+
 ### Make Requests
 
 The workhorse function of the interface is `makeAuthenticatedRequest(config, success, failure, headers)`. There are a few helper functions included for posting/getting nodes, getting views, uploading files, etc. They all construct a call to `makeAuthenticatedRequest()`. This function should facilitate most things that people want to do with Drupal in a mobile environment. It's also easy to use `makeAuthenticatedRequest' to make requests against custom Services. The short-term roadmap includes calls to the services supporting entities.
